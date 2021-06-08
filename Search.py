@@ -35,7 +35,6 @@ class SearchFile:
 
             if param == '-c' or param == '--color':
                 self._color = True
-                print('==> set to color')
 
             if param == '-m' or param == '--machine':
                 self._machine = True
@@ -46,13 +45,10 @@ class SearchFile:
         return text_processor.get_lines_of_file()
 
     def search_lines_for_regex(self, regex):
-        print('==> self._underscore is ' + str(self._underscore))
-        print('==> self._color is ' + str(self._color))
-        print('==> self._machine is ' + str(self._machine))
-
         list_of_lines_of_file = self.get_lines_of_file(self._file_path)
 
         line_counter = 0
+        print('->Matches<-')
         for line in list_of_lines_of_file:
             line_counter += 1
             result = re.finditer(regex, line)
@@ -60,10 +56,8 @@ class SearchFile:
             result, result_copy = tee(result)
 
             result_length = len(list(result_copy))
-            # print('-> Result is ' + str(result_length))
 
             if result_length != 0:
-                print('Matches Found: Begin')
                 self._list_of_matches.append(self._file_path
                                        + ':'
                                        + str(line_counter)
@@ -78,7 +72,6 @@ class SearchFile:
     def format_result(self, result):
         return_string = ''
 
-        print("format_result 1")
         if self._underscore:
             return_string = ' '
             for group in result:
@@ -91,10 +84,8 @@ class SearchFile:
 
             return return_string
 
-        print("format_result 2")
         if self._color:
             return_string = ' '
-            print('==> in formatter with color')
             for group in result:
                 pre_color_string = group.string[0:group.regs[0][0]]
                 color_string = '\x1b[6;30;42m' + group.string[group.regs[0][0]:group.regs[0][1]] + '\x1b[0m'

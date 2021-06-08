@@ -13,11 +13,6 @@ group.add_argument("-c", "--color", action='store_true')
 group.add_argument("-m", "--machine", action='store_true')
 
 args = parser.parse_args()
-for arg in vars(args):
-    print('=== var is ' + str(arg))
-
-print('=== var underscore is ' + str(args.underscore))
-print('=== var color is ' + str(args.color))
 
 search_output_type = ''
 if args.underscore:
@@ -29,9 +24,6 @@ if args.color:
 if args.machine:
     search_output_type = '-m'
 
-print(" ==> search_output_type is " + search_output_type)
-print(" ==> regex is " + args.regex)
-print(pathlib.Path().absolute())
 relative_path = str(pathlib.Path().absolute()) + '/Data/SampleInput.txt'
 
 # search_file = Search.SearchFile.get_lines_of_file(relative_path)
