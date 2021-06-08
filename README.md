@@ -12,13 +12,13 @@ Please run script via main.py args can be:
 
 example
 
--m -r ipsum /Data/SampleInput.txt /Data/SampleInput2.txt
+-m -r ipsum -l /Data/SampleInput.txt /Data/SampleInput2.txt
 
--c -r ipsum /Data/SampleInput.txt /Data/SampleInput2.txt
+-c -r ipsum -l /Data/SampleInput.txt /Data/SampleInput2.txt
 
--u -r ipsum /Data/SampleInput.txt /Data/SampleInput2.txt
+-u -r ipsum -l /Data/SampleInput.txt /Data/SampleInput2.txt
 
-for testing vs /Data/SampleInput.txt file
+for testing vs -l /Data/SampleInput.txt file
 
 -u -r ipsum
 -c -r ipsum
