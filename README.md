@@ -21,5 +21,7 @@ example
 for testing vs -l /Data/SampleInput.txt file
 
 -u -r ipsum
+
 -c -r ipsum
+
 -m -r ipsum
