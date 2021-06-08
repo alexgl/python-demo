@@ -18,7 +18,7 @@ example
 
 -u -r ipsum -l /Data/SampleInput.txt /Data/SampleInput2.txt
 
-for testing vs -l /Data/SampleInput.txt file
+for testing vs /Data/SampleInput.txt file
 
 -u -r ipsum
 
