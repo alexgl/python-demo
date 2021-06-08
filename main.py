@@ -14,6 +14,8 @@ group.add_argument("-m", "--machine", action='store_true')
 
 args = parser.parse_args()
 
+print("```` args.list" + str(args.list))
+
 search_output_type = ''
 if args.underscore:
     search_output_type = '-u'
@@ -24,8 +26,15 @@ if args.color:
 if args.machine:
     search_output_type = '-m'
 
-relative_path = str(pathlib.Path().absolute()) + '/Data/SampleInput.txt'
+
 
 # search_file = Search.SearchFile.get_lines_of_file(relative_path)
-search_file = Search.SearchFile(relative_path, search_output_type)
-search_file.search_lines_for_regex(args.regex)
+if args.list is None:
+    relative_path = str(pathlib.Path().absolute()) + '/Data/SampleInput.txt'
+    search_file = Search.SearchFile(relative_path, search_output_type)
+    search_file.search_lines_for_regex(args.regex)
+else:
+    for path in args.list:
+        relative_path = str(pathlib.Path().absolute()) + path
+        search_file = Search.SearchFile(relative_path, search_output_type)
+        search_file.search_lines_for_regex(args.regex)
