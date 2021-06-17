@@ -1,5 +1,7 @@
 # python-demo
 
+*UPDATE Cucumber test can be run from features folder via behave*
+
 Please run script via main.py args can be:
 
 -m
